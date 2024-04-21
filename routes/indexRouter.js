@@ -1,12 +1,12 @@
-const express=require("express")
-const router=express();
-/*
-*@route /api/user/
-@acess public
-@method GET
+const express = require("express");
+const router = express.Router();
 
-*/
-router.get("/",(req,res,next)=>{
-	res.send("hello my friend")
-})
-module.exports=router
+const { home, register, readall } = require("../controllers/inxdexController");
+
+router.get("/", home);
+
+router.post("/register", register);
+
+router.get("/readall", readall);
+
+module.exports = router;
